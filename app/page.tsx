@@ -79,13 +79,13 @@ export default function Home() {
                       <p className="text-sm font-medium text-slate-100">
                         {item.name}
                       </p>
-                      <p className="text-xs w-44 overflow-hidden text-ellipsis whitespace-nowrap font-light text-slate-100">
+                      <p className="text-xs max-w-44 overflow-hidden text-ellipsis whitespace-nowrap font-light text-slate-100">
                         {item.notes}
                       </p>
                     </div>
                   </div>
                   <div className="flex flex-col">
-                    <p className="text-sm text-end font-medium text-green-400">
+                    <p className="text-xs text-end font-medium text-green-400">
                       {formatRupiah(item.amount)}
                     </p>
                     <p className="text-xs text-end font-light text-slate-500">
