@@ -57,8 +57,8 @@ export default function Home() {
             onChange={(e) => setSearch(e.target.value)}
           />
           <div className="flex w-full items-center gap-3">
-            <Button size="sm" className={`rounded-full border px-4 ${page === "transaction" ? 'bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("transaction")}>Transaksi</Button>
-            <Button size="sm" className={`rounded-full border px-4 ${page === "report" ? 'bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("report")}>Report</Button>
+            <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "transaction" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("transaction")}>Transaksi</Button>
+            <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "report" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("report")}>Report</Button>
           </div>
           {page === "transaction" && (
             <div className="flex flex-col gap-5 w-full">
@@ -88,7 +88,7 @@ export default function Home() {
                     <p className="text-sm text-end font-medium text-green-400">
                       {formatRupiah(item.amount)}
                     </p>
-                    <p className="text-xs text-end font-light text-slate-100">
+                    <p className="text-xs text-end font-light text-slate-500">
                       {item.date}
                     </p>
                   </div>
