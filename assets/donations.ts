@@ -1,11 +1,14 @@
-export const donations = [
+import { Donation } from "@/types/donation.type";
+
+export const donations: Donation[] = [
   {
     id: "zaky-1",
     name: "Zaky",
-    amount: 100000000,
+    amount: 55000,
     notes: "Okee",
     date: "21.02.26",
     image: "/images/capture/zaky-1.png",
+    category: "in",
   },
   {
     id: "zaky-2",
@@ -14,6 +17,25 @@ export const donations = [
     notes: "Oke",
     date: "21.02.26",
     image: "/images/capture/zaky-1.png",
+    category: "in",
+  },
+  {
+    id: "radit-1",
+    name: "Radit",
+    amount: 100000,
+    notes: "Bensin operasional",
+    date: "19.02.26",
+    image: "/images/capture/zaky-1.png",
+    category: "out",
+  },
+  {
+    id: "raka-1",
+    name: "Raka",
+    amount: 36000,
+    notes: "Uang rokok",
+    date: "20.01.26",
+    image: "/images/capture/zaky-1.png",
+    category: "out",
   },
   {
     id: "andi-1",
@@ -22,6 +44,7 @@ export const donations = [
     notes: "Semoga bermanfaat",
     date: "20.02.26",
     image: "/images/capture/zaky-1.png",
+    category: "in",
   },
   {
     id: "siti-1",
@@ -30,6 +53,7 @@ export const donations = [
     notes: "Untuk kebaikan bersama",
     date: "19.02.26",
     image: "/images/capture/zaky-1.png",
+    category: "in",
   },
   {
     id: "budi-1",
@@ -38,6 +62,16 @@ export const donations = [
     notes: "Tetap semangat!",
     date: "18.02.26",
     image: "/images/capture/zaky-1.png",
+    category: "in",
+  },
+  {
+    id: "andik-1",
+    name: "Andik",
+    amount: 1500000,
+    notes: "Korupsi dikit.",
+    date: "17.02.25",
+    image: "/images/capture/zaky-1.png",
+    category: "out",
   },
   {
     id: "rina-1",
@@ -46,6 +80,7 @@ export const donations = [
     notes: "Semoga lancar",
     date: "17.02.26",
     image: "/images/capture/zaky-1.png",
+    category: "in",
   },
   {
     id: "doni-1",
@@ -54,6 +89,7 @@ export const donations = [
     notes: "Sedikit bantuan",
     date: "16.02.26",
     image: "/images/capture/zaky-1.png",
+    category: "in",
   },
   {
     id: "maya-1",
@@ -62,6 +98,16 @@ export const donations = [
     notes: "Semoga cepat tercapai",
     date: "15.02.26",
     image: "/images/capture/zaky-1.png",
+    category: "in",
+  },
+  {
+    id: "slamet-1",
+    name: "Slamet",
+    amount: 500000,
+    notes: "DP tenda pasak dll",
+    date: "14.01.26",
+    image: "/images/capture/zaky-1.png",
+    category: "out",
   },
   {
     id: "fajar-1",
@@ -70,6 +116,7 @@ export const donations = [
     notes: "Ikut berkontribusi",
     date: "14.02.26",
     image: "/images/capture/zaky-1.png",
+    category: "in",
   },
   {
     id: "lina-1",
@@ -78,6 +125,7 @@ export const donations = [
     notes: "Semoga sukses selalu",
     date: "13.02.26",
     image: "/images/capture/zaky-1.png",
+    category: "in",
   },
   {
     id: "arif-1",
@@ -86,6 +134,7 @@ export const donations = [
     notes: "Semangat terus!",
     date: "12.02.26",
     image: "/images/capture/zaky-1.png",
+    category: "in",
   },
   {
     id: "nina-1",
@@ -94,5 +143,6 @@ export const donations = [
     notes: "Semoga membantu",
     date: "11.02.26",
     image: "/images/capture/zaky-1.png",
+    category: "in",
   },
 ];

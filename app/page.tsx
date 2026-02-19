@@ -11,7 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { formatRupiah } from "@/utils/formatRupiah";
+import { formatNumber } from "@/utils/formatNumber";
 import Image from "next/image";
 import { useState } from "react";
 import {
@@ -44,6 +44,22 @@ export default function Home() {
     setSelectedDonation(null)
   }
 
+  function calculateTotalDonatur() {
+    return searchDonationsByNameAmountNotes.length
+  }
+
+  function calculateTotalDonations() {
+    return searchDonationsByNameAmountNotes.reduce((acc, item) => item.category === "in" ? acc + item.amount : acc, 0)
+  }
+
+  function calculateTotalExpenses() {
+    return searchDonationsByNameAmountNotes.reduce((acc, item) => item.category === "out" ? acc + item.amount : acc, 0)
+  }
+
+  function calculateRemainingBalance() {
+    return calculateTotalDonations() - calculateTotalExpenses()
+  }
+
   return (
     <>
       <PamfletIntro />
@@ -70,7 +86,7 @@ export default function Home() {
                 </div>
               )}
               {searchDonationsByNameAmountNotes.map((item, index) => (
-                <div className="w-full flex items-center justify-between gap-3 rounded-full bg-slate-900 border border-slate-800 p-3 pr-6" key={item.id}>
+                <div className="w-full flex flex-wrap items-center justify-between gap-3 rounded-full bg-slate-900 border border-slate-800 p-3 pr-6" key={item.id}>
                   <div className="flex gap-3 items-center">
                     <div className="aspect-square w-12 flex items-center justify-center rounded-full bg-slate-800">
                       <FaEye onClick={() => handleOpenImage(index)} className="text-slate-500 text-base" />
@@ -79,14 +95,14 @@ export default function Home() {
                       <p className="text-sm font-medium text-slate-100">
                         {item.name}
                       </p>
-                      <p className="text-xs max-w-44 overflow-hidden text-ellipsis whitespace-nowrap font-light text-slate-100">
+                      <p className="text-xs max-w-40 overflow-hidden text-ellipsis whitespace-nowrap font-light text-slate-100">
                         {item.notes}
                       </p>
                     </div>
                   </div>
                   <div className="flex flex-col">
-                    <p className="text-xs text-end font-medium text-green-400">
-                      {formatRupiah(item.amount)}
+                    <p className={`text-xs text-end font-medium ${item.category === "in" ? 'text-green-400' : 'text-red-400'} `}>
+                      {item.category === "in" ? '+' : '-'}{" "}{formatNumber(item.amount)}
                     </p>
                     <p className="text-xs text-end font-light text-slate-500">
                       {item.date}
@@ -94,55 +110,6 @@ export default function Home() {
                   </div>
                 </div>
               ))}
-              {/* {searchDonationsByNameAmountNotes.map((item) => (
-              <Card className="bg-slate-900 border-slate-800" key={item.id}>
-                <CardContent className="space-y-2">
-                  <p className="text-sm font-medium text-slate-100">
-                    Bukti Uang Masuk
-                  </p>
-                  <Image
-                    className="cursor-pointer"
-                    src={item.image} alt="Bukti Uang Masuk" width={200} height={100}
-                    onClick={() => handleOpenImage(item.image)}
-                    loading="lazy"
-                  />
-                </CardContent>
-                <CardFooter className="flex flex-col justify-start items-start gap-5">
-                  <div className="flex flex-col gap-2">
-                    <p className="text-sm font-medium text-slate-400">
-                      Nama
-                    </p>
-                    <p className="text-2xl font-bold text-slate-100">
-                      {item.name}
-                    </p>
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <p className="text-sm font-medium text-slate-400">
-                      Total Keuangan Masuk
-                    </p>
-                    <p className="text-2xl font-bold text-slate-100">
-                      {formatRupiah(item.amount)}
-                    </p>
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <p className="text-sm font-medium text-slate-400">
-                      Notes
-                    </p>
-                    <p className="text-sm font-normal text-slate-100">
-                      {item.notes}
-                    </p>
-                  </div>
-                  <div className=" w-full flex  justify-between">
-                    <p className="text-xs font-light text-slate-400">
-                      Tanggal
-                    </p>
-                    <p className="text-xs font-light text-slate-100">
-                      {item.date}
-                    </p>
-                  </div>
-                </CardFooter>
-              </Card>
-            ))} */}
             </div>
           )}
           {page === "report" && (
@@ -150,11 +117,19 @@ export default function Home() {
               <CardHeader className="space-y-5">
                 <div className="space-y-2">
                   <CardTitle className="text-slate-100">Jumlah Donatur</CardTitle>
-                  <CardDescription className="text-green-400">{searchDonationsByNameAmountNotes.length}</CardDescription>
+                  <CardDescription className="text-green-400">{calculateTotalDonatur()}</CardDescription>
                 </div>
                 <div className="space-y-2">
                   <CardTitle className="text-slate-100">Jumlah Donasi</CardTitle>
-                  <CardDescription className="text-green-400">{formatRupiah(searchDonationsByNameAmountNotes.reduce((acc, item) => acc + item.amount, 0))}</CardDescription>
+                  <CardDescription className="text-green-400">Rp {formatNumber(calculateTotalDonations())}</CardDescription>
+                </div>
+                <div className="space-y-2">
+                  <CardTitle className="text-slate-100">Jumlah Pengeluaran</CardTitle>
+                  <CardDescription className="text-red-400">Rp {formatNumber(calculateTotalExpenses())}</CardDescription>
+                </div>
+                <div className="space-y-2">
+                  <CardTitle className="text-slate-100">Sisa Keuangan</CardTitle>
+                  <CardDescription className="text-green-400">Rp {formatNumber(calculateRemainingBalance())}</CardDescription>
                 </div>
               </CardHeader>
               <CardFooter className="flex flex-col justify-start items-start gap-5">

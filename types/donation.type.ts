@@ -5,4 +5,5 @@ export type Donation = {
   notes: string;
   date: string;
   image: string;
+  category:"in" | "out";
 }
