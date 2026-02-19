@@ -3,8 +3,8 @@ export const donations = [
     id: "zaky-1",
     name: "Zaky",
     amount: 100000000,
-    notes: "Oke",
-    date: "21 Februari 2026",
+    notes: "Okee",
+    date: "21-02-26",
     image: "/images/capture/zaky-1.png",
   },
   {
@@ -12,7 +12,7 @@ export const donations = [
     name: "Zaky",
     amount: 50000,
     notes: "Oke",
-    date: "21 Februari 2026",
+    date: "21-02-26",
     image: "/images/capture/zaky-1.png",
   },
   {
@@ -20,7 +20,7 @@ export const donations = [
     name: "Andi",
     amount: 250000,
     notes: "Semoga bermanfaat",
-    date: "20 Februari 2026",
+    date: "20-02-26",
     image: "/images/capture/zaky-1.png",
   },
   {
@@ -28,7 +28,7 @@ export const donations = [
     name: "Siti",
     amount: 75000,
     notes: "Untuk kebaikan bersama",
-    date: "19 Februari 2026",
+    date: "19-02-26",
     image: "/images/capture/zaky-1.png",
   },
   {
@@ -36,7 +36,7 @@ export const donations = [
     name: "Budi",
     amount: 1500000,
     notes: "Tetap semangat!",
-    date: "18 Februari 2026",
+    date: "18-02-26",
     image: "/images/capture/zaky-1.png",
   },
   {
@@ -44,7 +44,7 @@ export const donations = [
     name: "Rina",
     amount: 300000,
     notes: "Semoga lancar",
-    date: "17 Februari 2026",
+    date: "17-02-26",
     image: "/images/capture/zaky-1.png",
   },
   {
@@ -52,7 +52,7 @@ export const donations = [
     name: "Doni",
     amount: 125000,
     notes: "Sedikit bantuan",
-    date: "16 Februari 2026",
+    date: "16-02-26",
     image: "/images/capture/zaky-1.png",
   },
   {
@@ -60,7 +60,7 @@ export const donations = [
     name: "Maya",
     amount: 2000000,
     notes: "Semoga cepat tercapai",
-    date: "15 Februari 2026",
+    date: "15-02-26",
     image: "/images/capture/zaky-1.png",
   },
   {
@@ -68,7 +68,7 @@ export const donations = [
     name: "Fajar",
     amount: 90000,
     notes: "Ikut berkontribusi",
-    date: "14 Februari 2026",
+    date: "14-02-26",
     image: "/images/capture/zaky-1.png",
   },
   {
@@ -76,7 +76,7 @@ export const donations = [
     name: "Lina",
     amount: 450000,
     notes: "Semoga sukses selalu",
-    date: "13 Februari 2026",
+    date: "13-02-26",
     image: "/images/capture/zaky-1.png",
   },
   {
@@ -84,7 +84,7 @@ export const donations = [
     name: "Arif",
     amount: 600000,
     notes: "Semangat terus!",
-    date: "12 Februari 2026",
+    date: "12-02-26",
     image: "/images/capture/zaky-1.png",
   },
   {
@@ -92,7 +92,7 @@ export const donations = [
     name: "Nina",
     amount: 110000,
     notes: "Semoga membantu",
-    date: "11 Februari 2026",
+    date: "11-02-26",
     image: "/images/capture/zaky-1.png",
   },
 ];
