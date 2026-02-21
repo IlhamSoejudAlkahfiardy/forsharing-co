@@ -27,11 +27,12 @@ import { Button } from "@/components/ui/button";
 import { FaEye } from "react-icons/fa";
 import { Donation } from "@/types/donation.type";
 
+type Page = "transaction" | "report" | "foundation";
 
 export default function Home() {
   const [search, setSearch] = useState("");
   const [selectedDonation, setSelectedDonation] = useState<Donation | null>(null)
-  const [page, setPage] = useState<"transaction" | "report">("transaction");
+  const [page, setPage] = useState<Page>("transaction");
   const searchDonationsByNameAmountNotes = donations.filter((item) => {
     return item.name.toLowerCase().includes(search.toLowerCase()) || item.amount.toString().includes(search.toLowerCase()) || item.notes.toLowerCase().includes(search.toLowerCase());
   })
@@ -60,6 +61,8 @@ export default function Home() {
     return calculateTotalDonations() - calculateTotalExpenses()
   }
 
+
+
   return (
     <>
       <PamfletIntro />
@@ -75,6 +78,7 @@ export default function Home() {
           <div className="flex w-full items-center gap-3">
             <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "transaction" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("transaction")}>Transaksi</Button>
             <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "report" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("report")}>Report</Button>
+            <Button disabled size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "foundation" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("foundation")}>Foundation</Button>
           </div>
           {page === "transaction" && (
             <div className="flex flex-col gap-5 w-full">
@@ -134,7 +138,7 @@ export default function Home() {
               </CardHeader>
               <CardFooter className="flex flex-col justify-start items-start gap-5">
                 <p className="text-xs font-light text-slate-100">
-                  Data per tanggal 19-02-26
+                  Data per tanggal 21-02-26
                 </p>
               </CardFooter>
             </Card>
