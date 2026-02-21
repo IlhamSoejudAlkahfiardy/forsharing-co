@@ -69,7 +69,7 @@ export default function Home() {
       <div className="container max-w-md w-full mx-auto p-4">
         <div className="mt-10 flex flex-col gap-5">
           <p className="font-semibold text-xl text-sky-400">
-            Laporan Keuangan Masuk
+            Laporan Keuangan ForSharing
           </p>
           <SearchBar
             value={search}
