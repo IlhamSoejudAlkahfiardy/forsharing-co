@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "ForSharing Co.",
@@ -24,6 +25,7 @@ export default function RootLayout({
         className={`antialiased bg-slate-950`}
       >
         {children}
+        <Footer />
       </body>
     </html>
   );

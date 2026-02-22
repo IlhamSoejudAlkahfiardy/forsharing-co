@@ -26,13 +26,14 @@ import { PamfletIntro } from "@/components/PamfletIntro";
 import { Button } from "@/components/ui/button";
 import { FaEye } from "react-icons/fa";
 import { Donation } from "@/types/donation.type";
+import { FoundationDetailCard } from "@/components/FoundationDetailCard";
 
 type Page = "transaction" | "report" | "foundation";
 
 export default function Home() {
   const [search, setSearch] = useState("");
   const [selectedDonation, setSelectedDonation] = useState<Donation | null>(null)
-  const [page, setPage] = useState<Page>("transaction");
+  const [page, setPage] = useState<Page>("report");
   const searchDonationsByNameAmountNotes = donations.filter((item) => {
     return item.name.toLowerCase().includes(search.toLowerCase()) || item.amount.toString().includes(search.toLowerCase()) || item.notes.toLowerCase().includes(search.toLowerCase());
   })
@@ -66,19 +67,19 @@ export default function Home() {
   return (
     <>
       <PamfletIntro />
-      <div className="container max-w-md w-full mx-auto p-4">
+      <div className="container max-w-md min-h-screen w-full mx-auto p-4">
         <div className="mt-10 flex flex-col gap-5">
           <p className="font-semibold text-xl text-sky-400">
             Laporan Keuangan ForSharing
           </p>
-          <SearchBar
+          {/* <SearchBar
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-          />
+          /> */}
           <div className="flex w-full items-center gap-3">
-            <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "transaction" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("transaction")}>Transaksi</Button>
+            {/* <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "transaction" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("transaction")}>Transaksi</Button> */}
             <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "report" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("report")}>Report</Button>
-            <Button disabled size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "foundation" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("foundation")}>Foundation</Button>
+            <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "foundation" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("foundation")}>Yayasan</Button>
           </div>
           {page === "transaction" && (
             <div className="flex flex-col gap-5 w-full">
@@ -142,6 +143,16 @@ export default function Home() {
                 </p>
               </CardFooter>
             </Card>
+          )}
+          {page === "foundation" && (
+            <FoundationDetailCard
+              name="Miftahul Jannah"
+              address="Jl. Kartini Gg. ⅩⅧ No.67, Pekauman, Kec. Gresik, Kabupaten Gresik, Jawa Timur 61122"
+              image="/images/assets/yayasan.jpg"
+              mapsLink="https://maps.app.goo.gl/oxXNAqAv5CjyA2uz7"
+              mapsEmbedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.665535872202!2d112.6464436!3d-7.164609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd800424c374239%3A0x35e270beb2109313!2sYayasan%20Miftakhul%20Jannah%20Gresik!5e0!3m2!1sid!2sid!4v1771779225797!5m2!1sid!2sid"
+            // <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.665535872202!2d112.6464436!3d-7.164609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd800424c374239%3A0x35e270beb2109313!2sYayasan%20Miftakhul%20Jannah%20Gresik!5e0!3m2!1sid!2sid!4v1771779225797!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            />
           )}
         </div>
         <Dialog open={!!selectedDonation} onOpenChange={handleCloseImage}>
