@@ -42,7 +42,7 @@ export default function Home() {
   const [selectedDonation, setSelectedDonation] = useState<Donation | null>(null)
   const [page, setPage] = useState<Page>("report");
   const [dataReport, setDataReport] = useState<DataReport>({
-    donatur: 9,
+    donatur: 11,
     totalDonasi: 983000,
     totalPengeluaran: 0,
     sisaKeuangan: 983000,
@@ -91,7 +91,7 @@ export default function Home() {
           <div className="flex w-full items-center gap-3">
             {/* <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "transaction" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("transaction")}>Transaksi</Button> */}
             <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "report" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("report")}>Report</Button>
-            {/* <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "foundation" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("foundation")}>Yayasan</Button> */}
+            <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "foundation" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("foundation")}>Yayasan</Button>
             <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "donation" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("donation")}>Donasi</Button>
           </div>
           {page === "transaction" && (
