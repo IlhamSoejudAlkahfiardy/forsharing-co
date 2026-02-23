@@ -79,7 +79,7 @@ export default function Home() {
           <div className="flex w-full items-center gap-3">
             {/* <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "transaction" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("transaction")}>Transaksi</Button> */}
             <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "report" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("report")}>Report</Button>
-            <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "foundation" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("foundation")}>Yayasan</Button>
+            {/* <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "foundation" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("foundation")}>Yayasan</Button> */}
             <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "donation" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("donation")}>Donasi</Button>
           </div>
           {page === "transaction" && (
@@ -147,12 +147,11 @@ export default function Home() {
           )}
           {page === "foundation" && (
             <FoundationDetailCard
-              name="Miftahul Jannah"
-              address="Jl. Kartini Gg. ⅩⅧ No.67, Pekauman, Kec. Gresik, Kabupaten Gresik, Jawa Timur 61122"
+              name="Yayasan Hidayah Umat Gresik"
+              address="Jl. Jaksa Agung Suprapto Gang 8E. 4 (Sebelumnya di Perum. Sidorukun, Kec. Gresik, Kabupaten Gresik, Jawa Timur 61112"
               image="/images/assets/yayasan.jpg"
-              mapsLink="https://maps.app.goo.gl/oxXNAqAv5CjyA2uz7"
-              mapsEmbedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.665535872202!2d112.6464436!3d-7.164609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd800424c374239%3A0x35e270beb2109313!2sYayasan%20Miftakhul%20Jannah%20Gresik!5e0!3m2!1sid!2sid!4v1771779225797!5m2!1sid!2sid"
-            // <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.665535872202!2d112.6464436!3d-7.164609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd800424c374239%3A0x35e270beb2109313!2sYayasan%20Miftakhul%20Jannah%20Gresik!5e0!3m2!1sid!2sid!4v1771779225797!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              mapsLink="https://maps.app.goo.gl/9o7qwuaSjKoRxngq6"
+              mapsEmbedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2429.2042308937503!2d112.65160451746065!3d-7.160004882673149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd801d6621a13d9%3A0x9df549bc384c41a2!2sYayasan%20Hidayah%20Umat%20Gresik!5e0!3m2!1sid!2sid!4v1771820057594!5m2!1sid!2sid"
             />
           )}
           {page === "donation" && (
