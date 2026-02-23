@@ -43,10 +43,10 @@ export default function Home() {
   const [page, setPage] = useState<Page>("report");
   const [dataReport, setDataReport] = useState<DataReport>({
     donatur: 9,
-    totalDonasi: 955000,
+    totalDonasi: 983000,
     totalPengeluaran: 0,
-    sisaKeuangan: 955000,
-    tanggal: "23-02-26 - 21:04 WIB",
+    sisaKeuangan: 983000,
+    tanggal: "23-02-26 - 22:34 WIB",
   });
   const searchDonationsByNameAmountNotes = donations.filter((item) => {
     return item.name.toLowerCase().includes(search.toLowerCase()) || item.amount.toString().includes(search.toLowerCase()) || item.notes.toLowerCase().includes(search.toLowerCase());
