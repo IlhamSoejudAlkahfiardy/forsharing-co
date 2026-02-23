@@ -123,24 +123,24 @@ export default function Home() {
               <CardHeader className="space-y-5">
                 <div className="space-y-2">
                   <CardTitle className="text-slate-100">Jumlah Donatur</CardTitle>
-                  <CardDescription className="text-green-400">{calculateTotalDonatur()}</CardDescription>
+                  <CardDescription className="text-green-400">3</CardDescription>
                 </div>
                 <div className="space-y-2">
                   <CardTitle className="text-slate-100">Jumlah Donasi</CardTitle>
-                  <CardDescription className="text-green-400">Rp {formatNumber(calculateTotalDonations())}</CardDescription>
+                  <CardDescription className="text-green-400">Rp {formatNumber(705000)}</CardDescription>
                 </div>
                 <div className="space-y-2">
                   <CardTitle className="text-slate-100">Jumlah Pengeluaran</CardTitle>
-                  <CardDescription className="text-red-400">Rp {formatNumber(calculateTotalExpenses())}</CardDescription>
+                  <CardDescription className="text-red-400">Rp {formatNumber(0)}</CardDescription>
                 </div>
                 <div className="space-y-2">
                   <CardTitle className="text-slate-100">Sisa Keuangan</CardTitle>
-                  <CardDescription className="text-green-400">Rp {formatNumber(calculateRemainingBalance())}</CardDescription>
+                  <CardDescription className="text-green-400">Rp {formatNumber(705000)}</CardDescription>
                 </div>
               </CardHeader>
               <CardFooter className="flex flex-col justify-start items-start gap-5">
                 <p className="text-xs font-light text-slate-100">
-                  Data per tanggal 21-02-26
+                  Data per tanggal 23-02-26 - 14:31 WIB
                 </p>
               </CardFooter>
             </Card>
