@@ -29,11 +29,25 @@ import { Donation } from "@/types/donation.type";
 import { FoundationDetailCard } from "@/components/FoundationDetailCard";
 
 type Page = "transaction" | "report" | "foundation" | "donation";
+type DataReport = {
+  donatur: number;
+  totalDonasi: number;
+  totalPengeluaran: number;
+  sisaKeuangan: number;
+  tanggal: string;
+}
 
 export default function Home() {
   const [search, setSearch] = useState("");
   const [selectedDonation, setSelectedDonation] = useState<Donation | null>(null)
   const [page, setPage] = useState<Page>("report");
+  const [dataReport, setDataReport] = useState<DataReport>({
+    donatur: 9,
+    totalDonasi: 955000,
+    totalPengeluaran: 0,
+    sisaKeuangan: 955000,
+    tanggal: "23-02-26 - 21:04 WIB",
+  });
   const searchDonationsByNameAmountNotes = donations.filter((item) => {
     return item.name.toLowerCase().includes(search.toLowerCase()) || item.amount.toString().includes(search.toLowerCase()) || item.notes.toLowerCase().includes(search.toLowerCase());
   })
@@ -61,8 +75,6 @@ export default function Home() {
   function calculateRemainingBalance() {
     return calculateTotalDonations() - calculateTotalExpenses()
   }
-
-
 
   return (
     <>
@@ -123,24 +135,24 @@ export default function Home() {
               <CardHeader className="space-y-5">
                 <div className="space-y-2">
                   <CardTitle className="text-slate-100">Jumlah Donatur</CardTitle>
-                  <CardDescription className="text-green-400">4</CardDescription>
+                  <CardDescription className="text-green-400">{dataReport.donatur}</CardDescription>
                 </div>
                 <div className="space-y-2">
                   <CardTitle className="text-slate-100">Jumlah Donasi</CardTitle>
-                  <CardDescription className="text-green-400">Rp {formatNumber(805000)}</CardDescription>
+                  <CardDescription className="text-green-400">Rp {formatNumber(dataReport.totalDonasi)}</CardDescription>
                 </div>
                 <div className="space-y-2">
                   <CardTitle className="text-slate-100">Jumlah Pengeluaran</CardTitle>
-                  <CardDescription className="text-red-400">Rp {formatNumber(0)}</CardDescription>
+                  <CardDescription className="text-red-400">Rp {formatNumber(dataReport.totalPengeluaran)}</CardDescription>
                 </div>
                 <div className="space-y-2">
                   <CardTitle className="text-slate-100">Sisa Keuangan</CardTitle>
-                  <CardDescription className="text-green-400">Rp {formatNumber(805000)}</CardDescription>
+                  <CardDescription className="text-green-400">Rp {formatNumber(dataReport.sisaKeuangan)}</CardDescription>
                 </div>
               </CardHeader>
               <CardFooter className="flex flex-col justify-start items-start gap-5">
                 <p className="text-xs font-light text-slate-100">
-                  Data per tanggal 23-02-26 - 18:42 WIB
+                  Data per tanggal {dataReport.tanggal}
                 </p>
               </CardFooter>
             </Card>
