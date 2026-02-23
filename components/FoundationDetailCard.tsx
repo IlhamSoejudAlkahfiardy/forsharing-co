@@ -20,7 +20,7 @@ export function FoundationDetailCard({
     mapsLink,
 }: FoundationDetailProps) {
     return (
-        <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center p-6">
+        <div className="bg-slate-950 text-slate-100 flex items-center justify-center">
             <Card className="w-full max-w-4xl bg-slate-900 border-slate-800 rounded-2xl shadow-2xl">
                 <CardContent className="p-8 space-y-8">
 
@@ -29,9 +29,9 @@ export function FoundationDetailCard({
                     <Image
                         src={image}
                         alt={name}
-                        width={256}
+                        width={384}
                         height={100}
-                        className="mx-auto"
+                        className="rounded-xl"
                     />
                     {/* </div> */}
 

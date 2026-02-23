@@ -28,7 +28,7 @@ import { FaEye } from "react-icons/fa";
 import { Donation } from "@/types/donation.type";
 import { FoundationDetailCard } from "@/components/FoundationDetailCard";
 
-type Page = "transaction" | "report" | "foundation";
+type Page = "transaction" | "report" | "foundation" | "donation";
 
 export default function Home() {
   const [search, setSearch] = useState("");
@@ -69,8 +69,8 @@ export default function Home() {
       <PamfletIntro />
       <div className="container max-w-md min-h-screen w-full mx-auto p-4">
         <div className="mt-10 flex flex-col gap-5">
-          <p className="font-semibold text-xl text-sky-400">
-            Laporan Keuangan ForSharing
+          <p className="font-semibold text-xl text-center text-sky-400">
+            Informasi Kegiatan ForSharing Vol 1
           </p>
           {/* <SearchBar
             value={search}
@@ -80,6 +80,7 @@ export default function Home() {
             {/* <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "transaction" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("transaction")}>Transaksi</Button> */}
             <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "report" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("report")}>Report</Button>
             <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "foundation" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("foundation")}>Yayasan</Button>
+            <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "donation" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("donation")}>Donasi</Button>
           </div>
           {page === "transaction" && (
             <div className="flex flex-col gap-5 w-full">
@@ -118,7 +119,7 @@ export default function Home() {
             </div>
           )}
           {page === "report" && (
-            <Card className="bg-slate-900 border-slate-800">
+            <Card className="bg-slate-900 border-slate-800 rounded-2xl">
               <CardHeader className="space-y-5">
                 <div className="space-y-2">
                   <CardTitle className="text-slate-100">Jumlah Donatur</CardTitle>
@@ -153,6 +154,24 @@ export default function Home() {
               mapsEmbedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.665535872202!2d112.6464436!3d-7.164609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd800424c374239%3A0x35e270beb2109313!2sYayasan%20Miftakhul%20Jannah%20Gresik!5e0!3m2!1sid!2sid!4v1771779225797!5m2!1sid!2sid"
             // <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.665535872202!2d112.6464436!3d-7.164609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd800424c374239%3A0x35e270beb2109313!2sYayasan%20Miftakhul%20Jannah%20Gresik!5e0!3m2!1sid!2sid!4v1771779225797!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             />
+          )}
+          {page === "donation" && (
+            <div className="w-full flex flex-col gap-5">
+              <Image
+                src={"/images/assets/banner.jpeg"}
+                alt="banner"
+                width={384}
+                height={256}
+                className="mx-auto rounded-2xl"
+              />
+              <Image
+                src={"/images/assets/qris.jpeg"}
+                alt="QRIS"
+                width={384}
+                height={256}
+                className="mx-auto rounded-2xl"
+              />
+            </div>
           )}
         </div>
         <Dialog open={!!selectedDonation} onOpenChange={handleCloseImage}>

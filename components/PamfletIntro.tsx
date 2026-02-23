@@ -42,7 +42,7 @@ export function PamfletIntro() {
                 <h1 className="text-2xl font-bold text-indigo-400">
                     🎉 Selamat Datang!
                 </h1>
-                <Image src="/images/capture/zaky-1.png" alt="Logo" className="mx-auto" width={250} height={100} />
+                <Image src="/images/assets/banner.jpeg" alt="Logo" className="mx-auto" width={250} height={100} />
                 {/* <p className="mt-2 text-slate-400">
                     Terima kasih sudah mengunjungi halaman ini
                 </p> */}
