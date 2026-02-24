@@ -42,11 +42,11 @@ export default function Home() {
   const [selectedDonation, setSelectedDonation] = useState<Donation | null>(null)
   const [page, setPage] = useState<Page>("report");
   const [dataReport, setDataReport] = useState<DataReport>({
-    donatur: 18,
-    totalDonasi: 1848000,
+    donatur: 21,
+    totalDonasi: 1923800,
     totalPengeluaran: 0,
-    sisaKeuangan: 1848000,
-    tanggal: "24-02-26 - 14:21 WIB",
+    sisaKeuangan: 1923800,
+    tanggal: "24-02-26 - 22:18 WIB",
   });
   const searchDonationsByNameAmountNotes = donations.filter((item) => {
     return item.name.toLowerCase().includes(search.toLowerCase()) || item.amount.toString().includes(search.toLowerCase()) || item.notes.toLowerCase().includes(search.toLowerCase());
