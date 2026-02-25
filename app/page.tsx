@@ -44,11 +44,11 @@ export default function Home() {
   );
   const [page, setPage] = useState<Page>("report");
   const [dataReport, setDataReport] = useState<DataReport>({
-    donatur: 34,
-    totalDonasi: 2915227,
+    donatur: 35,
+    totalDonasi: 2990227,
     totalPengeluaran: 0,
-    sisaKeuangan: 2915227,
-    tanggal: "25-02-26 - 14:05 WIB",
+    sisaKeuangan: 2990227,
+    tanggal: "25-02-26 - 17:50 WIB",
   });
   const searchDonationsByNameAmountNotes = donations.filter((item) => {
     return (
