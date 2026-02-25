@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { donations } from "@/assets/donations";
 import { SearchBar } from "@/components/SearchBar";
@@ -10,7 +10,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 import { formatNumber } from "@/utils/formatNumber";
 import Image from "next/image";
 import { useState } from "react";
@@ -21,7 +21,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
 import { PamfletIntro } from "@/components/PamfletIntro";
 import { Button } from "@/components/ui/button";
 import { FaEye } from "react-icons/fa";
@@ -35,45 +35,57 @@ type DataReport = {
   totalPengeluaran: number;
   sisaKeuangan: number;
   tanggal: string;
-}
+};
 
 export default function Home() {
   const [search, setSearch] = useState("");
-  const [selectedDonation, setSelectedDonation] = useState<Donation | null>(null)
+  const [selectedDonation, setSelectedDonation] = useState<Donation | null>(
+    null,
+  );
   const [page, setPage] = useState<Page>("report");
   const [dataReport, setDataReport] = useState<DataReport>({
-    donatur: 25,
-    totalDonasi: 2443800,
+    donatur: 34,
+    totalDonasi: 2915227,
     totalPengeluaran: 0,
-    sisaKeuangan: 2443800,
-    tanggal: "25-02-26 - 08:22 WIB",
+    sisaKeuangan: 2915227,
+    tanggal: "25-02-26 - 14:05 WIB",
   });
   const searchDonationsByNameAmountNotes = donations.filter((item) => {
-    return item.name.toLowerCase().includes(search.toLowerCase()) || item.amount.toString().includes(search.toLowerCase()) || item.notes.toLowerCase().includes(search.toLowerCase());
-  })
+    return (
+      item.name.toLowerCase().includes(search.toLowerCase()) ||
+      item.amount.toString().includes(search.toLowerCase()) ||
+      item.notes.toLowerCase().includes(search.toLowerCase())
+    );
+  });
 
   function handleOpenImage(index: number) {
-    setSelectedDonation(donations[index])
+    setSelectedDonation(donations[index]);
   }
 
   function handleCloseImage() {
-    setSelectedDonation(null)
+    setSelectedDonation(null);
   }
 
   function calculateTotalDonatur() {
-    return searchDonationsByNameAmountNotes.length
+    return searchDonationsByNameAmountNotes.length;
   }
 
   function calculateTotalDonations() {
-    return searchDonationsByNameAmountNotes.reduce((acc, item) => item.category === "in" ? acc + item.amount : acc, 0)
+    return searchDonationsByNameAmountNotes.reduce(
+      (acc, item) => (item.category === "in" ? acc + item.amount : acc),
+      0,
+    );
   }
 
   function calculateTotalExpenses() {
-    return searchDonationsByNameAmountNotes.reduce((acc, item) => item.category === "out" ? acc + item.amount : acc, 0)
+    return searchDonationsByNameAmountNotes.reduce(
+      (acc, item) => (item.category === "out" ? acc + item.amount : acc),
+      0,
+    );
   }
 
   function calculateRemainingBalance() {
-    return calculateTotalDonations() - calculateTotalExpenses()
+    return calculateTotalDonations() - calculateTotalExpenses();
   }
 
   return (
@@ -90,9 +102,27 @@ export default function Home() {
           /> */}
           <div className="flex w-full items-center gap-3">
             {/* <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "transaction" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("transaction")}>Transaksi</Button> */}
-            <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "report" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("report")}>Report</Button>
-            <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "foundation" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("foundation")}>Yayasan</Button>
-            <Button size="sm" className={`rounded-full border cursor-pointer px-4 ${page === "donation" ? 'bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100' : 'bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100'} `} onClick={() => setPage("donation")}>Donasi</Button>
+            <Button
+              size="sm"
+              className={`rounded-full border cursor-pointer px-4 ${page === "report" ? "bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100" : "bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100"} `}
+              onClick={() => setPage("report")}
+            >
+              Report
+            </Button>
+            <Button
+              size="sm"
+              className={`rounded-full border cursor-pointer px-4 ${page === "foundation" ? "bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100" : "bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100"} `}
+              onClick={() => setPage("foundation")}
+            >
+              Yayasan
+            </Button>
+            <Button
+              size="sm"
+              className={`rounded-full border cursor-pointer px-4 ${page === "donation" ? "bg-sky-500 hover:bg-sky-500 border-sky-500 text-slate-100" : "bg-slate-900 hover:bg-slate-900 border-slate-800 text-slate-100"} `}
+              onClick={() => setPage("donation")}
+            >
+              Donasi
+            </Button>
           </div>
           {page === "transaction" && (
             <div className="flex flex-col gap-5 w-full">
@@ -104,10 +134,16 @@ export default function Home() {
                 </div>
               )}
               {searchDonationsByNameAmountNotes.map((item, index) => (
-                <div className="w-full flex flex-wrap items-center justify-between gap-3 rounded-full bg-slate-900 border border-slate-800 p-3 pr-6" key={item.id}>
+                <div
+                  className="w-full flex flex-wrap items-center justify-between gap-3 rounded-full bg-slate-900 border border-slate-800 p-3 pr-6"
+                  key={item.id}
+                >
                   <div className="flex gap-3 items-center">
                     <div className="aspect-square w-12 flex items-center justify-center rounded-full bg-slate-800">
-                      <FaEye onClick={() => handleOpenImage(index)} className="text-slate-500 text-base" />
+                      <FaEye
+                        onClick={() => handleOpenImage(index)}
+                        className="text-slate-500 text-base"
+                      />
                     </div>
                     <div className="flex flex-col">
                       <p className="text-sm font-medium text-slate-100">
@@ -119,8 +155,11 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex flex-col">
-                    <p className={`text-xs text-end font-medium ${item.category === "in" ? 'text-green-400' : 'text-red-400'} `}>
-                      {item.category === "in" ? '+' : '-'}{" "}{formatNumber(item.amount)}
+                    <p
+                      className={`text-xs text-end font-medium ${item.category === "in" ? "text-green-400" : "text-red-400"} `}
+                    >
+                      {item.category === "in" ? "+" : "-"}{" "}
+                      {formatNumber(item.amount)}
                     </p>
                     <p className="text-xs text-end font-light text-slate-500">
                       {item.date}
@@ -134,20 +173,36 @@ export default function Home() {
             <Card className="bg-slate-900 border-slate-800 rounded-2xl">
               <CardHeader className="space-y-5">
                 <div className="space-y-2">
-                  <CardTitle className="text-slate-100">Jumlah Donatur</CardTitle>
-                  <CardDescription className="text-green-400">{dataReport.donatur}</CardDescription>
+                  <CardTitle className="text-slate-100">
+                    Jumlah Donatur
+                  </CardTitle>
+                  <CardDescription className="text-green-400">
+                    {dataReport.donatur}
+                  </CardDescription>
                 </div>
                 <div className="space-y-2">
-                  <CardTitle className="text-slate-100">Jumlah Donasi</CardTitle>
-                  <CardDescription className="text-green-400">Rp {formatNumber(dataReport.totalDonasi)}</CardDescription>
+                  <CardTitle className="text-slate-100">
+                    Jumlah Donasi
+                  </CardTitle>
+                  <CardDescription className="text-green-400">
+                    Rp {formatNumber(dataReport.totalDonasi)}
+                  </CardDescription>
                 </div>
                 <div className="space-y-2">
-                  <CardTitle className="text-slate-100">Jumlah Pengeluaran</CardTitle>
-                  <CardDescription className="text-red-400">Rp {formatNumber(dataReport.totalPengeluaran)}</CardDescription>
+                  <CardTitle className="text-slate-100">
+                    Jumlah Pengeluaran
+                  </CardTitle>
+                  <CardDescription className="text-red-400">
+                    Rp {formatNumber(dataReport.totalPengeluaran)}
+                  </CardDescription>
                 </div>
                 <div className="space-y-2">
-                  <CardTitle className="text-slate-100">Sisa Keuangan</CardTitle>
-                  <CardDescription className="text-green-400">Rp {formatNumber(dataReport.sisaKeuangan)}</CardDescription>
+                  <CardTitle className="text-slate-100">
+                    Sisa Keuangan
+                  </CardTitle>
+                  <CardDescription className="text-green-400">
+                    Rp {formatNumber(dataReport.sisaKeuangan)}
+                  </CardDescription>
                 </div>
               </CardHeader>
               <CardFooter className="flex flex-col justify-start items-start gap-5">
@@ -203,11 +258,9 @@ export default function Home() {
                   </p>
                 </div>
               </>
-
             )}
           </DialogContent>
         </Dialog>
-
       </div>
     </>
   );
