@@ -38,10 +38,10 @@ type DataReport = {
 };
 
 export default function Home() {
-  const [search, setSearch] = useState("");
-  const [selectedDonation, setSelectedDonation] = useState<Donation | null>(
-    null,
-  );
+  // const [search, setSearch] = useState("");
+  // const [selectedDonation, setSelectedDonation] = useState<Donation | null>(
+  //   null,
+  // );
   const [page, setPage] = useState<Page>("report");
   const [dataReport, setDataReport] = useState<DataReport>({
     donatur: 35,
@@ -50,43 +50,43 @@ export default function Home() {
     sisaKeuangan: 2990227,
     tanggal: "25-02-26 - 17:50 WIB",
   });
-  const searchDonationsByNameAmountNotes = donations.filter((item) => {
-    return (
-      item.name.toLowerCase().includes(search.toLowerCase()) ||
-      item.amount.toString().includes(search.toLowerCase()) ||
-      item.notes.toLowerCase().includes(search.toLowerCase())
-    );
-  });
+  // const searchDonationsByNameAmountNotes = donations.filter((item) => {
+  //   return (
+  //     item.name.toLowerCase().includes(search.toLowerCase()) ||
+  //     item.amount.toString().includes(search.toLowerCase()) ||
+  //     item.notes.toLowerCase().includes(search.toLowerCase())
+  //   );
+  // });
 
-  function handleOpenImage(index: number) {
-    setSelectedDonation(donations[index]);
-  }
+  // function handleOpenImage(index: number) {
+  //   setSelectedDonation(donations[index]);
+  // }
 
-  function handleCloseImage() {
-    setSelectedDonation(null);
-  }
+  // function handleCloseImage() {
+  //   setSelectedDonation(null);
+  // }
 
-  function calculateTotalDonatur() {
-    return searchDonationsByNameAmountNotes.length;
-  }
+  // function calculateTotalDonatur() {
+  //   return searchDonationsByNameAmountNotes.length;
+  // }
 
-  function calculateTotalDonations() {
-    return searchDonationsByNameAmountNotes.reduce(
-      (acc, item) => (item.category === "in" ? acc + item.amount : acc),
-      0,
-    );
-  }
+  // function calculateTotalDonations() {
+  //   return searchDonationsByNameAmountNotes.reduce(
+  //     (acc, item) => (item.category === "in" ? acc + item.amount : acc),
+  //     0,
+  //   );
+  // }
 
-  function calculateTotalExpenses() {
-    return searchDonationsByNameAmountNotes.reduce(
-      (acc, item) => (item.category === "out" ? acc + item.amount : acc),
-      0,
-    );
-  }
+  // function calculateTotalExpenses() {
+  //   return searchDonationsByNameAmountNotes.reduce(
+  //     (acc, item) => (item.category === "out" ? acc + item.amount : acc),
+  //     0,
+  //   );
+  // }
 
-  function calculateRemainingBalance() {
-    return calculateTotalDonations() - calculateTotalExpenses();
-  }
+  // function calculateRemainingBalance() {
+  //   return calculateTotalDonations() - calculateTotalExpenses();
+  // }
 
   return (
     <>
@@ -124,7 +124,7 @@ export default function Home() {
               Donasi
             </Button>
           </div>
-          {page === "transaction" && (
+          {/* {page === "transaction" && (
             <div className="flex flex-col gap-5 w-full">
               {searchDonationsByNameAmountNotes.length === 0 && (
                 <div className="w-full flex items-center justify-center gap-3 rounded-full bg-slate-900 border border-slate-800 p-3 pr-5">
@@ -168,7 +168,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          )}
+          )} */}
           {page === "report" && (
             <Card className="bg-slate-900 border-slate-800 rounded-2xl">
               <CardHeader className="space-y-5">
@@ -240,7 +240,7 @@ export default function Home() {
             </div>
           )}
         </div>
-        <Dialog open={!!selectedDonation} onOpenChange={handleCloseImage}>
+        {/* <Dialog open={!!selectedDonation} onOpenChange={handleCloseImage}>
           <DialogContent className="bg-slate-900 border-slate-800 max-w-3xl">
             {selectedDonation && (
               <>
@@ -260,7 +260,7 @@ export default function Home() {
               </>
             )}
           </DialogContent>
-        </Dialog>
+        </Dialog> */}
       </div>
     </>
   );
