@@ -38,11 +38,11 @@ type DataReport = {
 };
 
 const dataReportInitial: DataReport = {
-  donatur: 54,
-  totalDonasi: 5584785,
+  donatur: 57,
+  totalDonasi: 6204785,
   totalPengeluaran: 0,
   sisaKeuangan: 0,
-  tanggal: "03-03-26 - 07:57 WIB",
+  tanggal: "03-03-26 - 13:00 WIB",
 };
 
 export default function Home() {
