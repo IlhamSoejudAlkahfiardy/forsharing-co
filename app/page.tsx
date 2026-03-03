@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/card";
 import { formatNumber } from "@/utils/formatNumber";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -37,19 +37,34 @@ type DataReport = {
   tanggal: string;
 };
 
+const dataReportInitial: DataReport = {
+  donatur: 54,
+  totalDonasi: 5584785,
+  totalPengeluaran: 0,
+  sisaKeuangan: 0,
+  tanggal: "03-03-26 - 07:57 WIB",
+};
+
 export default function Home() {
   // const [search, setSearch] = useState("");
   // const [selectedDonation, setSelectedDonation] = useState<Donation | null>(
   //   null,
   // );
+
   const [page, setPage] = useState<Page>("report");
-  const [dataReport, setDataReport] = useState<DataReport>({
-    donatur: 51,
-    totalDonasi: 4834785,
-    totalPengeluaran: 0,
-    sisaKeuangan: 4834785,
-    tanggal: "02-03-26 - 14:40 WIB",
-  });
+  const [dataReport, setDataReport] = useState<DataReport>(dataReportInitial);
+
+  const calculateRemainingBalance = (): number => {
+    return dataReport.totalDonasi - dataReport.totalPengeluaran;
+  };
+
+  useEffect(() => {
+    setDataReport((prev) => ({
+      ...prev,
+      sisaKeuangan: calculateRemainingBalance(),
+    }));
+  }, []);
+
   // const searchDonationsByNameAmountNotes = donations.filter((item) => {
   //   return (
   //     item.name.toLowerCase().includes(search.toLowerCase()) ||
