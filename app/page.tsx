@@ -38,11 +38,11 @@ type DataReport = {
 };
 
 const dataReportInitial: DataReport = {
-  donatur: 61,
-  totalDonasi: 6504785,
+  donatur: 65,
+  totalDonasi: 6774785,
   totalPengeluaran: 0,
   sisaKeuangan: 0,
-  tanggal: "04-03-26 - 08:28 WIB",
+  tanggal: "04-03-26 - 18:58 WIB",
 };
 
 export default function Home() {
@@ -241,13 +241,6 @@ export default function Home() {
               <Image
                 src={"/images/assets/banner.jpeg"}
                 alt="banner"
-                width={384}
-                height={256}
-                className="mx-auto rounded-2xl"
-              />
-              <Image
-                src={"/images/assets/qris.jpeg"}
-                alt="QRIS"
                 width={384}
                 height={256}
                 className="mx-auto rounded-2xl"
